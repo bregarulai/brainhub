@@ -1,18 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button, Col, Form, InputGroup } from "react-bootstrap";
 
-const MyForm = () => {
-  const [validated, setValidated] = useState(false);
-
-  const handleSubmit = (event) => {
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
-
-    setValidated(true);
-  };
+const MyForm = ({
+  handleFirstNameChange,
+  handleLastNameChange,
+  handleEmailChange,
+  handleDateChange,
+  handleSubmit,
+  validated,
+}) => {
   return (
     <Form
       className="form-wrapper"
@@ -27,7 +23,12 @@ const MyForm = () => {
         controlId="firstName"
       >
         <Form.Label>First name</Form.Label>
-        <Form.Control required type="text" placeholder="First name" />
+        <Form.Control
+          required
+          type="text"
+          placeholder="First name"
+          onChange={handleFirstNameChange}
+        />
         <Form.Control.Feedback type="invalid">
           Please provide a First Name.
         </Form.Control.Feedback>
@@ -39,7 +40,12 @@ const MyForm = () => {
         controlId="lastName"
       >
         <Form.Label>Last name</Form.Label>
-        <Form.Control required type="text" placeholder="Last name" />
+        <Form.Control
+          required
+          type="text"
+          placeholder="Last name"
+          onChange={handleLastNameChange}
+        />
         <Form.Control.Feedback type="invalid">
           Please provide a valid Last Name.
         </Form.Control.Feedback>
@@ -52,7 +58,12 @@ const MyForm = () => {
       >
         <Form.Label>Email</Form.Label>
         <InputGroup>
-          <Form.Control type="text" placeholder="Email" required />
+          <Form.Control
+            type="text"
+            placeholder="Email"
+            required
+            onChange={handleEmailChange}
+          />
           <Form.Control.Feedback type="invalid">
             Please choose an Email.
           </Form.Control.Feedback>
@@ -66,7 +77,12 @@ const MyForm = () => {
         controlId="validationCustom03"
       >
         <Form.Label>Date</Form.Label>
-        <Form.Control type="date" placeholder="City" required />
+        <Form.Control
+          type="date"
+          placeholder="City"
+          required
+          onChange={handleDateChange}
+        />
         <Form.Control.Feedback type="invalid">
           Please provide a valid Date.
         </Form.Control.Feedback>
