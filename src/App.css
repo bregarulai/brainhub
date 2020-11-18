@@ -7,6 +7,12 @@
   text-align: center;
   margin-top: 10rem;
 }
+
+.App h2 {
+  text-align: center;
+  text-transform: capitalize;
+}
+
 .section {
   padding: 5rem 0;
   position: relative;
